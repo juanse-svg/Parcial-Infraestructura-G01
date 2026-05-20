@@ -6,7 +6,7 @@ cd /home/ec2-user
 git clone https://github.com/juanse-svg/Parcial-Infraestructura-G01.git
 cd Parcial-Infraestructura-G01
 
-pip3 install -r app/requirements.txt
+pip3 install flask requests
 
 cat > /etc/systemd/system/flask-app.service <<EOF
 [Unit]

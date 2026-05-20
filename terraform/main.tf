@@ -176,6 +176,7 @@ resource "aws_instance" "app_a" {
   subnet_id              = aws_subnet.public_a.id
   vpc_security_group_ids = [aws_security_group.ec2.id]
   user_data              = file("user_data.sh")
+  key_name               = "vockey"
   tags = { Name = "${var.project_name}-ec2-a" }
 }
 
@@ -185,6 +186,7 @@ resource "aws_instance" "app_b" {
   subnet_id              = aws_subnet.public_b.id
   vpc_security_group_ids = [aws_security_group.ec2.id]
   user_data              = file("user_data.sh")
+  key_name               = "vockey"
   tags = { Name = "${var.project_name}-ec2-b" }
 }
 
@@ -208,17 +210,17 @@ resource "aws_db_subnet_group" "main" {
 }
 
 resource "aws_db_instance" "primary" {
-  identifier           = "${var.project_name}-db-primary"
-  engine               = "postgres"
-  engine_version       = "15"
-  instance_class       = "db.t3.micro"
-  allocated_storage    = 20
-  db_name              = "appdb"
-  username             = var.db_username
-  password             = var.db_password
-  db_subnet_group_name = aws_db_subnet_group.main.name
-  vpc_security_group_ids = [aws_security_group.rds.id]
-  skip_final_snapshot  = true
+  identifier              = "${var.project_name}-db-primary"
+  engine                  = "postgres"
+  engine_version          = "15"
+  instance_class          = "db.t3.micro"
+  allocated_storage       = 20
+  db_name                 = "appdb"
+  username                = var.db_username
+  password                = var.db_password
+  db_subnet_group_name    = aws_db_subnet_group.main.name
+  vpc_security_group_ids  = [aws_security_group.rds.id]
+  skip_final_snapshot     = true
   backup_retention_period = 1
   tags = { Name = "${var.project_name}-db-primary" }
 }
