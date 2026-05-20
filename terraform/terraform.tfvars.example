@@ -1,0 +1,5 @@
+aws_region    = "us-east-1"
+project_name  = "aws-infra-final"
+instance_type = "t2.micro"
+db_username   = "admin"
+db_password   = "TuPasswordSegura123!"
