@@ -38,7 +38,7 @@ cp terraform/terraform.tfvars.example terraform/terraform.tfvars
 # Editar terraform.tfvars con tus credenciales
 ```
 
-### 3. Desplegar infraestructura
+### 3. Desplegar infraestructura 
 ```bash
 cd terraform
 terraform init
